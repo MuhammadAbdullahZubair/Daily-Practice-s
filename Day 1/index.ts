@@ -3,14 +3,18 @@
 let setTimeoutID:number = 0;
 
 console.log(`Before Asyncn Code`);
-
-setTimeoutID = setTimeout(()=>{
+let i:number = 0;
+setTimeoutID = setInterval(()=>{
+    i++
+    if(i > 5){
+        i++
+    }else{
+        clearInterval(setTimeoutID)
+        
+    }
     
     console.log(`in Asyncn Code`);
 },1000)
-if(false){
-    clearTimeout(setTimeoutID)
-}
 
 console.log(`After Asyncn Code`);
 
