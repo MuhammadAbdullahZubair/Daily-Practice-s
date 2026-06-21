@@ -1,107 +1,107 @@
 import inquirer from "inquirer";
 
-// class Student {
-//   name: string;
-//   marks: number;
+class Student {
+  name: string;
+  marks: number;
 
-//   constructor(name: string, marks: number) {
-//     this.name = name;
-//     this.marks = marks;
-//   }
+  constructor(name: string, marks: number) {
+    this.name = name;
+    this.marks = marks;
+  }
 
-//   getGrade(): string {
-//     if (this.marks >= 80) {
-//       return "A";
-//     } else if (this.marks >= 65) {
-//       return "B";
-//     } else if (this.marks >= 50) {
-//       return "C";
-//     } else {
-//       return "F";
-//     }
-//   }
-// }
+  getGrade(): string {
+    if (this.marks >= 80) {
+      return "A";
+    } else if (this.marks >= 65) {
+      return "B";
+    } else if (this.marks >= 50) {
+      return "C";
+    } else {
+      return "F";
+    }
+  }
+}
 
-// async function main() {
-//   let students: Student[] = [
-//     new Student("Ali", 80),
-//     new Student("Ahmed", 65),
-//     new Student("Hasnain", 50),
-//   ];
+async function main1() {
+  let students: Student[] = [
+    new Student("Ali", 80),
+    new Student("Ahmed", 65),
+    new Student("Hasnain", 50),
+  ];
 
-//   let running = true;
+  let running = true;
 
-//   while (running) {
-//     const answer = await inquirer.prompt([
-//       {
-//         type: "select",
-//         name: "action",
-//         message: "What do you want to do?",
-//         choices: [
-//           "Add Student",
-//           "View all Students",
-//           `Only pass students >= 50`,
-//           `Average Marks`,
-//           "Exit"
-//         ],
-//       },
-//     ]);
+  while (running) {
+    const answer = await inquirer.prompt([
+      {
+        type: "select",
+        name: "action",
+        message: "What do you want to do?",
+        choices: [
+          "Add Student",
+          "View all Students",
+          `Only pass students >= 50`,
+          `Average Marks`,
+          "Exit"
+        ],
+      },
+    ]);
 
-//     if (answer.action === "Add Student") {
-//       const newStudent = await inquirer.prompt([
-//         {
-//           type: "input",
-//           name: "name",
-//           message: "Enter Student Name:",
-//         },
-//         {
-//           type: "number",
-//           name: "marks",
-//           message: "Enter Student Marks:",
-//         },
-//       ]);
+    if (answer.action === "Add Student") {
+      const newStudent = await inquirer.prompt([
+        {
+          type: "input",
+          name: "name",
+          message: "Enter Student Name:",
+        },
+        {
+          type: "number",
+          name: "marks",
+          message: "Enter Student Marks:",
+        },
+      ]);
 
-//       students.push(
-//         new Student(
-//           newStudent.name,
-//           newStudent.marks
-//         )
-//       );
+      students.push(
+        new Student(
+          newStudent.name,
+          newStudent.marks
+        )
+      );
 
-//       console.log("\n✅ Student Added Successfully\n");
-//     }
+      console.log("\n✅ Student Added Successfully\n");
+    }
 
-//     else if (answer.action === "View all Students") {
-//       console.log("\n📚 Student List\n");
+    else if (answer.action === "View all Students") {
+      console.log("\n📚 Student List\n");
 
-//       students.forEach((student, index) => {
-//         console.log(
-//           `${index + 1}. ${student.name} | Marks: ${student.marks} | Grade: ${student.getGrade()}`
-//         );
-//       });
+      students.forEach((student, index) => {
+        console.log(
+          `${index + 1}. ${student.name} | Marks: ${student.marks} | Grade: ${student.getGrade()}`
+        );
+      });
 
-//       console.log("");
-//     }else if(answer.action === `Only pass students >= 50`){
-//         let passedStudent = students.filter((passed)=>{return passed.marks >= 50})
-//         console.log(passedStudent);
+      console.log("");
+    }else if(answer.action === `Only pass students >= 50`){
+        let passedStudent = students.filter((passed)=>{return passed.marks >= 50})
+        console.log(passedStudent);
         
-//     }else if(answer.action === `Average Marks`){
-//         let total = students.reduce((sum, student) => {
-//     return sum + student.marks
-//     }, 0)
-//     let avg:number = total / students.length 
-//     console.log(avg);
+    }else if(answer.action === `Average Marks`){
+        let total = students.reduce((sum, student) => {
+    return sum + student.marks
+    }, 0)
+    let avg:number = total / students.length 
+    console.log(avg);
     
-//     }
+    }
 
-//     else if (answer.action === "Exit") {
-//       running = false;
-//       console.log("\n👋 Program Closed\n");
-//     }
-//   }
-// }
+    else if (answer.action === "Exit") {
+      running = false;
+      console.log("\n👋 Program Closed\n");
+    }
+  }
+}
 
-// main();
+main1();
 // async function getuser(id:number) {
 //     let getData = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
 //     let data = await getData.json()
